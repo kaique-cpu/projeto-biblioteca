@@ -14,7 +14,8 @@ public static void main(String[] args) {
             System.out.println("4. Devolver Livro");
             System.out.println("5. Mostrar Livros Emprestados");
             System.out.println("6. Mostrar Livros Disponíveis");
-            System.out.println("7. Sair");
+            System.out.println("7. Listar Usuários");
+            System.out.println("8. Sair");
             System.out.print("Escolha uma opção: ");
             String opcao = scanner.nextLine();
 
@@ -44,8 +45,12 @@ public static void main(String[] args) {
                 case "6":
                     biblioteca.relatorioDisponiveis();
                     break;
-
+                
                 case "7":
+                    biblioteca.listarUsuarios();
+                    break;
+
+                case "8":
                     executando = false;
                     System.out.println("\nEncerrando...");
                     break;

@@ -35,7 +35,7 @@ public class Usuario {
     // Sobrescrevendo o método toString
     @Override
     public String toString() {
-        return "Nome: " + nome + "\nEmail: " + email;
+        return "Nome: " + nome + "  Email: " + email;
     }
     
 

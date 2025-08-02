@@ -37,13 +37,36 @@ public class Cadastros {
         while(true) {
             System.out.print("Título: ");
             String titulo = scanner.nextLine();
+            if(titulo.isEmpty()) {
+                System.out.println("Erro! O titulo do livro deve conter algum caractere");
+                continue;
+            }
             System.out.print("Autor: ");
             String autor = scanner.nextLine();
             if(autor.length()<3) {
                 System.out.println("Erro! O nome do autor deve ter ao menos 3 caracteres.");
                 continue;
             }
-            Livro l = new Livro(titulo, autor);
+            System.out.print("ISBN: ");
+            String isbn = scanner.nextLine();
+            if(isbn.length()<6) {
+                System.out.println("Erro! O isbn deve ter mais de 5 caracteres.");
+                continue;
+            }
+            System.out.print("Ano: ");
+            int ano = scanner.nextInt();
+            scanner.nextLine();
+            if(ano<1800 || ano>2025) {
+                System.out.println("Erro! O ano deve estar entre 1800 e 2025.");
+                continue;
+            }
+            System.out.print("Editora: ");
+            String editora = scanner.nextLine();
+            if(editora.length()<3) {
+                System.out.println("Erro! A editora deve ter ao menos 3 caracteres.");
+                continue;
+            }
+            Livro l = new Livro(titulo, autor, isbn, ano, editora);
             biblioteca.cadastrarLivro(l);
             break;
 

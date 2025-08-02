@@ -5,6 +5,11 @@ public class Biblioteca {
     private ArrayList<Usuario> usuarios = new ArrayList<>();
     private ArrayList<Emprestimo> emprestimos = new ArrayList<>();
 
+    public void cadastrarUsuario(Usuario usuario) {
+        usuarios.add(usuario);
+        System.out.println("\n--- Usuário cadastrado --- \n" + usuario);
+    }
+
     public void cadastrarLivro(Livro livro) {
         if (!acervo.contains(livro)) {
             acervo.add(livro);
@@ -12,11 +17,6 @@ public class Biblioteca {
         } else {
             System.out.println("Livro já existe no acervo.");
         }
-    }
-
-    public void cadastrarUsuario(Usuario usuario) {
-        usuarios.add(usuario);
-        System.out.println("\n--- Usuário cadastrado --- \n" + usuario);
     }
 
     public void emprestarLivro(String tituloLivro, String nomeUsuario) {
@@ -55,15 +55,21 @@ public class Biblioteca {
         System.out.println("\nLivro emprestado com sucesso!");
     }
 
-    public void devolverLivro(String tituloLivro) {
-        for (Emprestimo e : emprestimos) {
-            if (e.getLivro().getTitulo().equalsIgnoreCase(tituloLivro)) {
-                emprestimos.remove(e);
-                System.out.println("\nLivro devolvido com sucesso!");
-                return;
-            }
+    public void devolverLivro(String identificador) {
+    for (Emprestimo e : emprestimos) {
+        Livro livro = e.getLivro();
+
+        // Verifica se o identificador é igual ao título ou ao ISBN
+        if (livro.getTitulo().equalsIgnoreCase(identificador) || 
+            livro.getIsbn().equalsIgnoreCase(identificador)) {
+
+            emprestimos.remove(e); // Remove o empréstimo
+            System.out.println("Livro devolvido com sucesso!");
+            return;
         }
-        System.out.println("\nEste livro não está emprestado.");
+    }
+    // Se nenhum livro for encontrado
+    System.out.println("Erro! Digite novamente");
     }
 
     public void relatorioEmprestados() {
@@ -88,6 +94,13 @@ public class Biblioteca {
         }
         if (!disponivel) {
             System.out.println("Nenhum livro disponível.");
+        }
+    }
+
+    public void listarUsuarios() {
+        System.out.println("\n--- Usuários Cadastrados ---");
+        for (Usuario u : usuarios) {
+            System.out.println(u);
         }
     }
 
