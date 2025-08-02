@@ -3,13 +3,13 @@ public class Livro {
 
     //Atributos
     private String titulo;
-    private String autor;
+    private Autor autor;
     private String isbn;
     private int ano;
     private String editora;
 
     //Contrutor
-    Livro(String titulo, String autor, String isbn, int ano, String editora) {
+    Livro(String titulo, Autor autor, String isbn, int ano, String editora) {
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
@@ -21,7 +21,7 @@ public class Livro {
     public String getTitulo() {
         return titulo;
     }
-    public String getAutor() {
+    public Autor getAutor() {
         return autor;
     }
     public String getIsbn() {
@@ -38,7 +38,7 @@ public class Livro {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-    public void setAutor(String autor) {
+    public void setAutor(Autor autor) {
         this.autor = autor;
     }
     public void setIsbn(String isbn) {
@@ -54,7 +54,7 @@ public class Livro {
     //toString
     @Override
     public String toString() {
-        return "Livro: \"" + titulo + "\"  escrito por: " + autor + "  ISBN: " + isbn + "  Ano: " + ano + "  Editora: " + editora;
+        return "Livro: " + titulo + "\nescrito por: " + autor.getNome() + "\nISBN: " + isbn + "\nAno: " + ano + "\nEditora: " + editora;
     }
 
     // Para Set funcionar e evitar duplicados, precisamos de equals e hashCode

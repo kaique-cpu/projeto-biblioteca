@@ -22,8 +22,9 @@ public class Emprestimo {
     //toString
     @Override
     public String toString() {
-        return livro + " emprestado para: " + usuario.getNome();
+        return "Livro: \"" + livro.getTitulo() + "\" emprestado para: " + usuario.getNome();
     }
+
 
     //Método de Emprestimo de Livros
     public static void emprestar(Biblioteca biblioteca) {
@@ -44,7 +45,7 @@ public class Emprestimo {
     public static void devolver(Biblioteca biblioteca) {
         Scanner scanner = new Scanner(System.in);
         while(true) {
-            System.out.print("Título do livro para devolução: ");
+            System.out.print("Título ou ISBN do livro para devolução: ");
             String tituloDevolucao = scanner.nextLine();
             biblioteca.devolverLivro(tituloDevolucao);
             break;

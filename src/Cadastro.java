@@ -1,5 +1,6 @@
+import java.nio.channels.Pipe.SourceChannel;
 import java.util.Scanner;
-public class Cadastros {
+public class Cadastro {
 
     //Método de Cadastro de Usuários
     public void cadastroUsuario(Biblioteca biblioteca) {
@@ -41,12 +42,21 @@ public class Cadastros {
                 System.out.println("Erro! O titulo do livro deve conter algum caractere");
                 continue;
             }
-            System.out.print("Autor: ");
-            String autor = scanner.nextLine();
-            if(autor.length()<3) {
+
+            System.out.print("Nome autor: ");
+            String nomeAutor = scanner.nextLine();
+            if(nomeAutor.length()<3) {
                 System.out.println("Erro! O nome do autor deve ter ao menos 3 caracteres.");
                 continue;
             }
+            System.out.println("Idade autor: ");
+            int idadeAutor = scanner.nextInt();
+            scanner.nextLine();
+            if(idadeAutor<0 && idadeAutor>130) {
+                System.out.println("Erro! A idade do autor deve estar entre 0 e 130");
+                continue;
+            }
+            Autor autor = new Autor(nomeAutor, idadeAutor);
             System.out.print("ISBN: ");
             String isbn = scanner.nextLine();
             if(isbn.length()<6) {

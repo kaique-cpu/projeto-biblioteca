@@ -21,12 +21,12 @@ public static void main(String[] args) {
 
             switch (opcao) {
                 case "1":
-                    Cadastros Usuario = new Cadastros();
+                    Cadastro Usuario = new Cadastro();
                     Usuario.cadastroUsuario(biblioteca);
                     break;
 
                 case "2":
-                    Cadastros Livro = new Cadastros();
+                    Cadastro Livro = new Cadastro();
                     Livro.cadastroLivro(biblioteca);
                     break;
 

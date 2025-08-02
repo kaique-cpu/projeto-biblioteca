@@ -88,7 +88,7 @@ public class Biblioteca {
         boolean disponivel = false;
         for (Livro livro : acervo) {
             if (!estaEmprestado(livro)) {
-                System.out.println(livro);
+                System.out.println("Livro: " + livro.getTitulo());
                 disponivel = true;
             }
         }
