@@ -1,4 +1,3 @@
-import java.nio.channels.Pipe.SourceChannel;
 import java.util.Scanner;
 public class Cadastro {
 
@@ -52,8 +51,8 @@ public class Cadastro {
             System.out.println("Idade autor: ");
             int idadeAutor = scanner.nextInt();
             scanner.nextLine();
-            if(idadeAutor<0 && idadeAutor>130) {
-                System.out.println("Erro! A idade do autor deve estar entre 0 e 130");
+            if(idadeAutor<0 || idadeAutor>120) {
+                System.out.println("Erro! A idade do autor deve estar entre 0 e 120");
                 continue;
             }
             Autor autor = new Autor(nomeAutor, idadeAutor);
